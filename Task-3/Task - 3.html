@@ -1,0 +1,171 @@
+<html>
+    <body>
+  
+        <div class="container">
+            <h1>TEMPERATURE CONVERTER</h1><br>
+                <div class="converter-row">
+                    <div class="col">
+                        <label>Fahrenheit</label>
+                        <input type="number" id="fahrenheit">
+                    </div>
+          
+                <div class="col">
+                    <label>Celsius</label>
+                    <input type="number" id="celsius">
+                </div>
+          
+                <div class="col">
+                    <label>Kelvin</label>
+                    <input type="number" id="kelvin">
+                </div>
+                
+                <div class="col">
+                    <label>Rankine</label>
+                    <input type="number" id="Rankine">
+                </div>
+                
+                <div class="col">
+                    <label>Réaumur </label>
+                    <input type="number" id="Réaumur ">
+                </div>
+            </div>
+        </div>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+      
+    .container {
+        width: 100%;
+        height: 100vh;
+        background-image: 
+        linear-gradient(rgb(100, 217, 246), rgb(224, 228, 202));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+      
+    .container h1 {
+        color: rgb(27, 28, 27);
+        font-weight: 700;
+        font-size: px;
+        text-align: center;
+    }
+      
+    .converter-row {
+        display: flex;
+        width: 60%;
+        justify-content: space-between;
+        align-items: center;
+        background: rgb(21, 22, 21);
+        border-radius: 10px;
+        padding: 50px 20px;
+    }
+      
+    .col {
+        flex-basis: 32%;
+        text-align: center;
+    }
+      
+    .col label {
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+      
+    .col input {
+        width: 150px;
+        height: 30px;
+        background: white;
+        border-radius: 5px;
+        text-align: center;
+    }
+</style>
+
+  
+<script>
+    let celsius = document.getElementById('celsius');
+    let fahrenheit = document.getElementById('fahrenheit');
+    let kelvin = document.getElementById('kelvin');
+    let Rankine= document.getElementById('Rankine');
+    let Réaumur  = document.getElementById('Réaumur ');
+    celsius.oninput = function () {
+        let f = (parseFloat(celsius.value) * 9 / 5) + 32;
+        fahrenheit.value = parseFloat(f.toFixed(2));
+      
+        let k = (parseFloat(celsius.value) + 273.15);
+        kelvin.value = parseFloat(k.toFixed(2));
+
+        let R = (parseFloat(celsius.value) + 273.15)* 9/5;
+        Rankine.value = parseFloat(R.toFixed(2));
+
+        let r = (parseFloat(celsius.value) *  0.8);
+        Réaumur.value = parseFloat(r.toFixed(2));
+
+    }
+    fahrenheit.oninput = function () {
+        let c = ((parseFloat(
+            fahrenheit.value) - 32) * 5 / 9);
+        celsius.value = parseFloat(c.toFixed(2));
+      
+        let k = (parseFloat( fahrenheit.value)+459.67)*5/9;
+        kelvin.value = parseFloat(k.toFixed(2));
+
+        let R = (parseFloat(fahrenheit.value) + 459.67);
+        Rankine.value = parseFloat(R.toFixed(2));
+
+        let r = (parseFloat(fahrenheit.value) - 32)*4/9;
+        Réaumur.value = parseFloat(r.toFixed(2));
+    }
+    kelvin.oninput = function () {
+        let f = (parseFloat(
+            kelvin.value) *9/5-459.67);
+        fahrenheit.value = parseFloat(f.toFixed(2));
+      
+        let c = (parseFloat(kelvin.value) - 273.15);
+        celsius.value = parseFloat(c.toFixed(2));
+
+        let R = (parseFloat(kelvin.value)*9/5);
+        Rankine.value = parseFloat(R.toFixed(2));
+
+        let r = (parseFloat(kelvin.value) - 273.15)*0.8;
+        Réaumur.value = parseFloat(r.toFixed(2));
+
+    }
+    Rankine.oninput = function () {
+        let f = (parseFloat(
+            kelvin.value) - 459.67) ;
+        fahrenheit.value = parseFloat(f.toFixed(2));
+      
+        let c = (parseFloat(Rankine.value) - 459.67)*5/9;
+        celsius.value = parseFloat(c.toFixed(2));
+
+        let k = (parseFloat(Rankine.value)*5/9);
+        Rankine.value = parseFloat(R.toFixed(2));
+
+        let r = (parseFloat(Rankine.value) - 491.67)*5/9*0.8;
+        Réaumur.value = parseFloat(r.toFixed(2));
+        
+    }
+    Reaumur.oninput = function () {
+        let f = (parseFloat(
+            Reaumur.value)  *9/4 + 32);
+        fahrenheit.value = parseFloat(f.toFixed(2));
+      
+        let c = (parseFloat(Reaumur.value) /0.8);
+        celsius.value = parseFloat(c.toFixed(2));
+
+        let R = (parseFloat(Reaumur.value)/0.8+273.15)*9/5;
+        Rankine.value = parseFloat(R.toFixed(2));
+
+        let k = (parseFloat(Reaumur.value) /0.8+273.15);
+        Réaumur.value = parseFloat(k.toFixed(2));
+        
+    }
+</script>
+</body>
+</html>
